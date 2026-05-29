@@ -1,10 +1,8 @@
-af (in Rust)
-============
+af: "awk field" filter (in Rust)
+================================
 
-Usage
------
+Usage::
 
-::
   af [OPTIONS] N1 [N2 ...] [file [file ...]]
 
 
@@ -25,6 +23,9 @@ filenames are provided as positional parameters, data will be read from standard
 Options
 -------
 
+
+
+===========================  ============================================================================
 Flag                         Behaviour
 ===========================  ============================================================================
 -F, --input-delimiter RX     Sets the *input delimiter regex* to ``RX``. The default is ``\s+``
@@ -103,9 +104,4 @@ There are doubtless an endless number of ways to accomplish the same thing, but 
 ``awk`` because it's reliable and easy (if a little unergonomic). At some point along the way I wrote a shell script
 ``af`` which took just the field numbers (or "NF" for the last field) and generated the ``awk`` script and then ran
 it. Then I re-wrote it in ``go`` and now I'm doing it in Rust. Why? I don't have to explain myself to the likes of you!
-
-
-
-
-
 
