@@ -19,5 +19,22 @@ struct ProgramOptions {
 fn main() -> Result<()> {
     let opts = ProgramOptions::parse_args_default_or_exit();
     eprintln!("{opts:?}");
+
+    let mut fields: Vec<i8> = vec![];
+    let mut input_paths: Vec<String> = vec![];
+
+    for param in opts.positional_params {
+        match param.parse::<i8>() {
+            Ok(n) => {
+                fields.push(n);
+            },
+            Err(_) => {
+                input_paths.push(param);
+            }
+        }
+    }
+
+    eprintln!("fields: {:?}", fields);
+    eprintln!("input_paths: {:?}", input_paths);
     Ok(())
 }
